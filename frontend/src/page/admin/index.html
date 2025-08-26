@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <title>Página Inicial</title>
+</head>
+
+<body>
+    <header>
+        <h1>Sistema de cadastro de clientes</h1>
+        <span>Admin</span>
+    </header>
+    <main>
+        <div class="control-container">
+            <h2>Painel de clientes</h2>
+            <div>
+                <button onclick="window.location.href='../cadastro.html'" id="btn-novo-cliente">Novo Cliente</button>
+                <button onclick="alert('Função de consulta ainda não implementada!')">Consultar Clientes</button>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <th>Nome do Cliente</th>
+                <th>Gênero</th>
+                <th>Data de Nasc.</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Senha</th>
+                <th>Endereço</th>
+                <th>Detalhes</th>
+                <th>Excluir</th>
+            </thead>
+            <tbody id="tabelaClientes">
+                <tr>
+                    <td>Bruno</td>
+                    <td>Masculino</td>
+                    <td>22/08/1999</td>
+                    <td>123.123.123.78</td>
+                    <td>(11)1234-5678</td>
+                    <td>bruno@gmail</td>
+                    <td>****</td>
+                    <td>Rua ABC, 123</td>
+                    <td><button class="btn-table" onclick="window.location.href='../consulta.html'">Editar</button>
+                    </td>
+                    <td><button class="btn-table btn-excluir">Excluir</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Caique</td>
+                    <td>Masculino</td>
+                    <td>20/03/2002</td>
+                    <td>111.222.333-45</td>
+                    <td>(11)8765-4321</td>
+                    <td>caique@gmail</td>
+                    <td>****</td>
+                    <td>Rua DEF, 256</td>
+                    <td><button class="btn-table" onclick="window.location.href='../consulta.html'">Editar</button>
+                    </td>
+                    <td><button class="btn-table btn-excluir">Excluir</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2025 Sistema de Cadastro de Clientes - Desenvolvido por
+            <a href="https://github.com/brunordgsmrr">@brunordgsmrr</a>
+            <a href="https://github.com/brunordgsmrr">@caiqueantunes</a>
+        </p>
+    </footer>
+
+    <script>
+
+        const tabela = document.querySelector("table");
+
+        // Escuta cliques dentro da tabela
+        tabela.addEventListener("click", function (event) {
+            if (event.target.classList.contains("btn-excluir")) {
+                // encontra a <tr> mais próxima do botão clicado
+                const linha = event.target.closest("tr");
+                linha.remove(); // remove a linha inteira
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+</html>

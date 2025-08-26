@@ -1,0 +1,42 @@
+[
+    {
+        "nome": "Bruno Rodrigues",
+        "genero": "Masculino",
+        "data_nascimento": "1990-01-01",
+        "email": "bruno@gmail.com",
+        "senha": "senha123",
+        "telefone": "(11) 98765-4321",
+        "cpf": "123.456.789-00",
+        "endereco": {
+            "tipo": "Residencial",
+            "tipo_logradouro": "Rua",
+            "logradouro": "Rua Exemplo",
+            "numero": "123",
+            "cep": "12345-678",
+            "bairro": "Bairro Exemplo",
+            "cidade": "Cidade Exemplo",
+            "estado": "SP",
+            "pais": "Brasil"
+        }
+    },
+    {
+        "nome": "Maria Silva",
+        "genero": "Feminino",
+        "data_nascimento": "1995-05-15",
+        "email": "maria@gmail.com",
+        "senha": "senha456",
+        "telefone": "(21) 91234-5678",
+        "cpf": "987.654.321-00",
+        "endereco": {
+            "tipo": "Comercial",
+            "tipo_logradouro": "Avenida",
+            "logradouro": "Avenida Exemplo",
+            "numero": "456",
+            "cep": "87654-321",
+            "bairro": "Bairro Exemplo 2",
+            "cidade": "Cidade Exemplo 2",
+            "estado": "RJ",
+            "pais": "Brasil"
+        }
+    }
+]
