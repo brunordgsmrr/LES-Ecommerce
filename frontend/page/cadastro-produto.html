@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Cadastro de produto</title>
+</head>
+
+<body>
+    <!-- Gerado por script-->
+    <header></header>
+    <main>
+        <!-- Gerado por script-->
+        <aside></aside>
+
+        <section class="cadastro-produto">
+            <h1>Cadastro de Produto</h1>
+            <form class="form-cadastro-produto">
+
+                <fieldset>
+                    <legend>Dados do produto</legend>
+                    <label for="nome-produto">Nome do Produto:</label>
+                    <input type="text" id="nome-produto" name="nome-produto" class="campo-valor" required>
+
+                    <label for="descricao-produto">Descrição do Produto:</label>
+                    <textarea id="descricao-produto" name="descricao-produto" required></textarea>
+
+                    <div class="plataforma-genero">
+                        <div class="plataformas">
+                            <label>Plataformas:</label>
+                            <label>
+                                <input type="checkbox" name="selecao-plataforma" id="selecao-plataforma-ps3"
+                                       value="ps3"> PS3
+                            </label>
+                            <label>
+                                <input type="checkbox" name="selecao-plataforma" id="selecao-plataforma-ps4"
+                                       value="ps4"> PS4
+                            </label>
+                            <label>
+                                <input type="checkbox" name="selecao-plataforma" id="selecao-plataforma-ps5"
+                                       value="ps5"> PS5
+                            </label>
+                            <label>
+                                <input type="checkbox" name="selecao-plataforma" id="selecao-plataforma-xboxone"
+                                       value="xboxone">
+                                XBOX ONE
+                            </label>
+                        </div>
+                        <div class="generos">
+                            <label>Generos:</label>
+                            <label>
+                                <input type="checkbox" name="selecao-genero" id="selecao-genero-ps3"
+                                       value="aventura"> Aventura
+                            </label>
+                            <label>
+                                <input type="checkbox" name="selecao-genero" id="selecao-genero-ps4"
+                                       value="acao"> Ação
+                            </label>
+                            <label>
+                                <input type="checkbox" name="selecao-genero" id="selecao-genero-rpg"
+                                       value="rpg"> RPG
+                            </label>
+                            <label>
+                                <input type="checkbox" name="selecao-genero" id="selecao-genero-fps"
+                                       value="fps">
+                                FPS
+                            </label>
+                        </div>
+                    </div>
+                    <label for="imagens-produto">Imagens do Produto:</label>
+                    <input type="file" id="imagens-produto" name="imagens-produto" accept="image/*" multiple required>
+                    <div class="imagens-enviadas">
+                        <img src="../img/jogo_2.png" alt="">
+                        <img src="../img/jogo_3.png" alt="">
+                        <img src="../img/jogo_4.png" alt="">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Dados de preço</legend>
+
+                    <div class="campo-preco">
+                        <div>
+                            <label for="preco-produto">Preço do Produto:</label><br>
+                            <input type="number" id="preco-produto" name="preco-produto" step="0.01" class="campo-valor"
+                                   required>
+                        </div>
+                        <div>
+                            <label>Grupo de precificação:</label><br>
+                            <label>
+                                <input type="radio" name="grupo-preco-produto" checked>
+                                <span>A</span>
+                            </label><br>
+
+                            <label>
+                                <input type="radio" name="grupo-preco-produto">
+                                <span>B</span>
+                            </label><br>
+
+                            <label>
+                                <input type="radio" name="grupo-preco-produto">
+                                <span>C</span>
+                            </label><br>
+                        </div>
+                        <div>
+                            <label for="quantidade-produto">Quantidade em Estoque:</label><br>
+                            <input type="number" id="quantidade-produto" name="quantidade-produto" class="campo-valor"
+                                   required>
+                        </div>
+                        <div>
+                            <label for="codigo-barra">Código de barra:</label><br>
+                            <input type="number" id="codigo-barra" name="codigo-barra" class="campo-valor"
+                                   required>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="forms-btns">
+                    <button type="submit">Cadastrar Produto</button>
+                    <button type="reset">Limpar </button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Gerado por script-->
+    <footer></footer>
+
+    <script src="../scripts/load-aside-admin.js"></script>
+    <script src="../scripts/load-header.js"></script>
+    <script src="../scripts/load-footer.js"></script>
+
+</body>
+
+</html>

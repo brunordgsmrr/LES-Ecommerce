@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <title>Página Inicial</title>
+</head>
+
+<body>
+    <!-- Gerado por script-->
+    <header></header>
+    <main>
+        <!-- Gerado por script-->
+        <aside></aside>
+        <section>
+
+
+            <div class="control-container">
+                <h2>Painel de clientes</h2>
+                <div>
+                    <button onclick="window.location.href='../cadastro.html'" id="btn-novo-cliente">Novo
+                        Cliente</button>
+                    <button onclick="alert('Função de consulta ainda não implementada!')">Consultar Clientes</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <!-- Gerado por script-->
+    <footer></footer>
+
+    <script src="../scripts/load-aside-admin.js"></script>
+    <script src="../scripts/load-header.js"></script>
+    <script src="../scripts/load-footer.js"></script>
+
+    <script>
+
+        const tabela = document.querySelector("table");
+
+        // Escuta cliques dentro da tabela
+        tabela.addEventListener("click", function (event) {
+            if (event.target.classList.contains("btn-excluir")) {
+                // encontra a <tr> mais próxima do botão clicado
+                const linha = event.target.closest("tr");
+                linha.remove(); // remove a linha inteira
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <title>Página Inicial</title>
+</head>
+
+<body>
+    <!-- Gerado por script-->
+    <header></header>
+    <main>
+        <!-- Gerado por script-->
+        <aside></aside>
+
+        <section>
+            <div class="control-container">
+                <h2>Painel de clientes</h2>
+                <div>
+                    <button onclick="window.location.href='../page/cadastro-cliente.html'" id="btn-novo-cliente">Novo
+                        Cliente</button>
+                    <button onclick="">Consultar Clientes</button>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <th>Imagem</th>
+                    <th>Nome</th>
+                    <th>Data de Nasc.</th>
+                    <th>Total de compras</th>
+                    <th>Ativo</th>
+                    <th>Transações</th>
+                    <th>editar</th>
+                    <th>excluir</th>
+                </thead>
+                <tbody id="tabelaClientes">
+                    <tr>
+                        <td>FOTO</td>
+                        <td>Bruno</td>
+                        <td>22/08/1999</td>
+                        <td>50</td>
+                        <td>Ativo</td>
+                        <td><button class="btn-table"><img src="../../img/shopping.svg" alt=""></button></td>
+                        <td><button class="btn-table" onclick="window.location.href='../consulta.html'"><img
+                                     src="../../img/edit.svg" alt=""></button>
+                        </td>
+                        <td><button class="btn-table btn-excluir"><img src="../../img/trash.svg" alt=""></button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Gerado por script-->
+    <footer></footer>
+
+    <script src="../scripts/load-aside-admin.js"></script>
+    <script src="../scripts/load-header.js"></script>
+    <script src="../scripts/load-footer.js"></script>
+
+    <script>
+
+        const tabela = document.querySelector("table");
+
+        // Escuta cliques dentro da tabela
+        tabela.addEventListener("click", function (event) {
+            if (event.target.classList.contains("btn-excluir")) {
+                // encontra a <tr> mais próxima do botão clicado
+                const linha = event.target.closest("tr");
+                linha.remove(); // remove a linha inteira
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+</html>
