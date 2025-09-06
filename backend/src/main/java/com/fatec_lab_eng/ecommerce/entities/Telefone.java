@@ -1,22 +1,39 @@
 package com.fatec_lab_eng.ecommerce.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_telefones")
 public class Telefone {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String ddd;
+	private int ddd;
 	private Long numero;
 	private String tipo;
+	
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;
 	
 	public Telefone() {
 		
 	}
 
-	public Telefone(Long id, String ddd, Long numero, String tipo) {
+	public Telefone(Long id, int ddd, Long numero, String tipo, Cliente cliente) {
 		super();
 		this.id = id;
 		this.ddd = ddd;
 		this.numero = numero;
 		this.tipo = tipo;
+		this.cliente = cliente;
 	}
 
 	public Long getId() {
@@ -27,11 +44,11 @@ public class Telefone {
 		this.id = id;
 	}
 
-	public String getDdd() {
+	public int getDdd() {
 		return ddd;
 	}
 
-	public void setDdd(String ddd) {
+	public void setDdd(int ddd) {
 		this.ddd = ddd;
 	}
 
@@ -50,6 +67,16 @@ public class Telefone {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	
 	
 	
 	

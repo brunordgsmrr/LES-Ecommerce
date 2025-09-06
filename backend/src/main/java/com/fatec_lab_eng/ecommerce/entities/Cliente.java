@@ -1,28 +1,57 @@
 package com.fatec_lab_eng.ecommerce.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_clientes")
 public class Cliente {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String nome;
 	private String genero;
+	
+	@Column(name = "data_nascimento")
 	private LocalDate dataNascimento;
+	
 	private String cpf;
-	private Telefone telefone;
 	private String email;
 	private String password;
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Telefone> telefones = new ArrayList<>();	
+	
+	@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Endereco enderecoResidencial;
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Endereco> enderecosCobranca;
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Endereco> enderecosEntrega;
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CartaoCredito> cartoesCredito;
 	
 	public Cliente() {
 		super();
 	}
 
-	public Cliente(Long id, String nome, String genero, LocalDate dataNascimento, String cpf, Telefone telefone,
+	public Cliente(Long id, String nome, String genero, LocalDate dataNascimento, String cpf, List<Telefone> telefones,
 			String email, String password, Endereco enderecoResidencial, List<Endereco> enderecosCobranca,
 			List<Endereco> enderecosEntrega, List<CartaoCredito> cartoesCredito) {
 		super();
@@ -31,7 +60,7 @@ public class Cliente {
 		this.genero = genero;
 		this.dataNascimento = dataNascimento;
 		this.cpf = cpf;
-		this.telefone = telefone;
+		this.telefones = telefones;
 		this.email = email;
 		this.password = password;
 		this.enderecoResidencial = enderecoResidencial;
@@ -80,12 +109,22 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public Telefone getTelefone() {
-		return telefone;
+	public List<Telefone> getTelefone() {
+		return telefones;
 	}
 
-	public void setTelefone(Telefone telefone) {
-		this.telefone = telefone;
+	public void setTelefone(List<Telefone> telefones) {
+		this.telefones = telefones;
+	}
+	
+	public void addTelefone(Telefone telefone) {
+		this.telefones.add(telefone);
+		telefone.setCliente(this);
+	}
+	
+	public void removeTelefone(Telefone telefone) {
+		this.telefones.remove(telefone);
+		telefone.setCliente(null);
 	}
 
 	public String getEmail() {

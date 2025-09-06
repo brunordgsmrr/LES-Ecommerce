@@ -1,8 +1,22 @@
 package com.fatec_lab_eng.ecommerce.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_enderecos")
 public class Endereco {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	private String tipoEndereco;
 	private String tipoResidencia;
 	private String tipoLogradouro;
 	private String logradouro;
@@ -14,14 +28,20 @@ public class Endereco {
 	private String pais;
 	private String observacao;
 	
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;
+	
 	public Endereco() {
 		super();
-	}
+	}	
 
-	public Endereco(Long id, String tipoResidencia, String tipoLogradouro, String logradouro, String numero,
-			String bairro, String cep, String cidade, String estado, String pais, String observacao) {
+	public Endereco(Long id, String tipoEndereco, String tipoResidencia, String tipoLogradouro, String logradouro,
+			String numero, String bairro, String cep, String cidade, String estado, String pais, String observacao,
+			Cliente cliente) {
 		super();
 		this.id = id;
+		this.tipoEndereco = tipoEndereco;
 		this.tipoResidencia = tipoResidencia;
 		this.tipoLogradouro = tipoLogradouro;
 		this.logradouro = logradouro;
@@ -32,7 +52,9 @@ public class Endereco {
 		this.estado = estado;
 		this.pais = pais;
 		this.observacao = observacao;
+		this.cliente = cliente;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -40,6 +62,14 @@ public class Endereco {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getTipoEndereco() {
+		return tipoEndereco;
+	}
+
+	public void setTipoEndereco(String tipoEndereco) {
+		this.tipoEndereco = tipoEndereco;
 	}
 
 	public String getTipoResidencia() {
@@ -121,5 +151,15 @@ public class Endereco {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	
 	
 }
