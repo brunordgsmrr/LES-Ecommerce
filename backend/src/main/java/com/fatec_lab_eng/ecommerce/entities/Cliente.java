@@ -22,17 +22,26 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false)
 	private String nome;
+	
+	@Column(nullable = false)
 	private String genero;
 	
-	@Column(name = "data_nascimento")
+	@Column(name = "data_nascimento", nullable = false)
 	private LocalDate dataNascimento;
 	
+	@Column(unique = true, nullable = false)
 	private String cpf;
+	
+	@Column(unique = true, nullable = false)
 	private String email;
+	
+	@Column(nullable = false)
 	private String password;
 	
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+	@Column(unique = true)
 	private List<Telefone> telefones = new ArrayList<>();	
 	
 	@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -109,11 +118,11 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public List<Telefone> getTelefone() {
+	public List<Telefone> getTelefones() {
 		return telefones;
 	}
 
-	public void setTelefone(List<Telefone> telefones) {
+	public void setTelefones(List<Telefone> telefones) {
 		this.telefones = telefones;
 	}
 	
