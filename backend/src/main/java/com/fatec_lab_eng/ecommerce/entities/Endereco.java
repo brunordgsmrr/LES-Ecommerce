@@ -1,5 +1,6 @@
 package com.fatec_lab_eng.ecommerce.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,20 +17,40 @@ public class Endereco {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name="tipo_endereco", nullable = false)
 	private String tipoEndereco;
+	
+	@Column(name="tipo_residencia", nullable = false)
 	private String tipoResidencia;
+	
+	@Column(name="tipo_logradouro", nullable = false)
 	private String tipoLogradouro;
+	
+	@Column(nullable = false)
 	private String logradouro;
+	
+	@Column(nullable = false)
 	private String numero;
+	
+	@Column(nullable = false)
 	private String bairro;
+	
+	@Column(nullable = false)
 	private String cep;
+	
+	@Column(nullable = false)
 	private String cidade;
+	
+	@Column(nullable = false)
 	private String estado;
+	
+	@Column(nullable = false)
 	private String pais;
+	
 	private String observacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "cliente_id")
+	@JoinColumn(name = "cliente_id", nullable = false)
 	private Cliente cliente;
 	
 	public Endereco() {

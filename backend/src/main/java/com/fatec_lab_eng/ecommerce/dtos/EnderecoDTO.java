@@ -1,5 +1,7 @@
 package com.fatec_lab_eng.ecommerce.dtos;
 
+import com.fatec_lab_eng.ecommerce.entities.Cliente;
+
 public class EnderecoDTO {
 
 	private Long id;
@@ -14,13 +16,17 @@ public class EnderecoDTO {
 	private String estado;
 	private String pais;
 	private String observacao;
+	private Cliente cliente;
 
 	public EnderecoDTO() {
 		super();
 	}
 
+	
+
 	public EnderecoDTO(Long id, String tipoEndereco, String tipoResidencia, String tipoLogradouro, String logradouro,
-			String numero, String bairro, String cep, String cidade, String estado, String pais, String observacao) {
+			String numero, String bairro, String cep, String cidade, String estado, String pais, String observacao,
+			Cliente cliente) {
 		super();
 		this.id = id;
 		this.tipoEndereco = tipoEndereco;
@@ -34,7 +40,10 @@ public class EnderecoDTO {
 		this.estado = estado;
 		this.pais = pais;
 		this.observacao = observacao;
+		this.cliente = cliente;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -131,4 +140,14 @@ public class EnderecoDTO {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	
 }

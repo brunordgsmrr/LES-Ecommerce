@@ -2,42 +2,29 @@ package com.fatec_lab_eng.ecommerce.dtos;
 
 import org.springframework.beans.BeanUtils;
 
-import com.fatec_lab_eng.ecommerce.entities.Cliente;
 import com.fatec_lab_eng.ecommerce.entities.Telefone;
 
-import jakarta.validation.constraints.NotBlank;
-
-public class TelefoneDTO {
+public class ConsultaTelefoneDTO {
 
 	private Long id;
-	
-	@NotBlank
 	private int ddd;
-	
-	@NotBlank
 	private Long numero;
-	
-	@NotBlank
 	private String tipo;
-	
-	private Cliente cliente;
 
-	public TelefoneDTO() {
+	public ConsultaTelefoneDTO() {
 		super();
 	}
 	
-	public TelefoneDTO(Telefone entity) {
-		
+	public ConsultaTelefoneDTO(Telefone entity) {		
 		BeanUtils.copyProperties(entity, this);
 	}
 
-	public TelefoneDTO(Long id, int ddd, Long numero, String tipo, Cliente cliente) {
+	public ConsultaTelefoneDTO(Long id, int ddd, Long numero, String tipo) {
 		super();
 		this.id = id;
 		this.ddd = ddd;
 		this.numero = numero;
 		this.tipo = tipo;
-		this.cliente = cliente;
 	}
 
 	public Long getId() {
@@ -71,15 +58,4 @@ public class TelefoneDTO {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	
-	
-
 }

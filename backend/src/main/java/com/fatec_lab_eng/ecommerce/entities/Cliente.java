@@ -7,6 +7,7 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -40,7 +41,10 @@ public class Cliente {
 	@Column(nullable = false)
 	private String password;
 	
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+	@Column(name="url_img")
+	private String urlImg;
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	@Column(unique = true)
 	private List<Telefone> telefones = new ArrayList<>();	
 	
@@ -62,7 +66,7 @@ public class Cliente {
 
 	public Cliente(Long id, String nome, String genero, LocalDate dataNascimento, String cpf, List<Telefone> telefones,
 			String email, String password, Endereco enderecoResidencial, List<Endereco> enderecosCobranca,
-			List<Endereco> enderecosEntrega, List<CartaoCredito> cartoesCredito) {
+			List<Endereco> enderecosEntrega, List<CartaoCredito> cartoesCredito, String urlImg) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -76,6 +80,7 @@ public class Cliente {
 		this.enderecosCobranca = enderecosCobranca;
 		this.enderecosEntrega = enderecosEntrega;
 		this.cartoesCredito = cartoesCredito;
+		this.urlImg = urlImg;
 	}
 
 	public Long getId() {
@@ -184,8 +189,12 @@ public class Cliente {
 		this.cartoesCredito = cartoesCredito;
 	}
 	
-	
-	
-	
+	public String getUrlImg() {
+		return urlImg;
+	}
+
+	public void setUrlImg(String urlImg) {
+		this.urlImg = urlImg;
+	}
 
 }
