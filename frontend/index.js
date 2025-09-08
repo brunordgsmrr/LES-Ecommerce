@@ -35,7 +35,7 @@ async function getClienteExample() {
     form.senha.value = data[0].senha;
 
     //endereço
-    form.tipo_endereco.value = data[0].endereco.tipo_endereco;
+    form.tipo_residencia.value = data[0].endereco.tipo_residencia;
     form.tipo_logradouro.value = data[0].endereco.tipo_logradouro;
     form.logradouro.value = data[0].endereco.logradouro;
     form.numero.value = data[0].endereco.numero;

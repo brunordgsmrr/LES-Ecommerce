@@ -1,4 +1,7 @@
-document.querySelector("aside").innerHTML = `
+const aside = document.querySelector("aside")
+
+if (!!aside) {
+    aside.innerHTML = `
     <h1>Painel de controle</h1>
 
     <nav>
@@ -28,4 +31,5 @@ document.querySelector("aside").innerHTML = `
         </ul>
     </nav>
 `
+}
 
